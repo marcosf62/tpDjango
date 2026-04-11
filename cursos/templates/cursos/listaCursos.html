@@ -1,0 +1,18 @@
+{% extends 'cursos/base.html' %}
+
+{% block body %}
+
+    <h1>Nuestros Cursos de Inglés</h1>
+    {% for curso in cursos %}
+        <div>
+            <h2>{{ curso.nombre }}</h2>
+            <p>{{ curso.descripcion }}</p>
+            <p>Nivel: {{ curso.nivel }}</p>
+            <p>Duración: {{ curso.duracion_semanas }} semanas</p>
+        </div>
+    {% empty %}
+        <p>No hay cursos cargados aún.</p>
+    {% endfor %}
+    <a href="{% url 'bienvenida' %}">  Volver al inicio </a>
+
+{% endblock %}
