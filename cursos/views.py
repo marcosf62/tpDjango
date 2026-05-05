@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Cursos
 
+
 def bienvenida(request):
     return render(request,'cursos/inicio.html')
 
