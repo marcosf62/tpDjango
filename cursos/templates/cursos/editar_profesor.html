@@ -1,0 +1,14 @@
+{% extends 'cursos/base.html' %}
+
+{% block body %}
+
+<h1>Editar Profesor</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit">Guardar cambios</button>
+</form>
+
+{% endblock %}

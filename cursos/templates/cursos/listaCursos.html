@@ -2,17 +2,46 @@
 
 {% block body %}
 
-    <h1>Nuestros Cursos de Inglés</h1>
-    {% for curso in cursos %}
-        <div>
-            <h2>{{ curso.nombre }}</h2>
-            <p>{{ curso.descripcion }}</p>
-            <p>Nivel: {{ curso.nivel }}</p>
-            <p>Duración: {{ curso.duracion_semanas }} semanas</p>
-        </div>
-    {% empty %}
-        <p>No hay cursos cargados aún.</p>
-    {% endfor %}
-    <a href="{% url 'bienvenida' %}">  Volver al inicio </a>
+<h1>Nuestros Cursos</h1>
+
+{% for curso in cursos %}
+    <div>
+        <h2>{{ curso.nombre }}</h2>
+        <p>{{ curso.descripcion }}</p>
+        <p><strong>Nivel:</strong> {{ curso.nivel }}</p>
+        <p><strong>Duración:</strong> {{ curso.duracion_semanas }} semanas</p>
+    </div>
+    <hr>
+{% empty %}
+    <p>No hay cursos cargados.</p>
+{% endfor %}
+
+
+<h2>Profesores</h2>
+
+<a href="{% url 'profes' %}">Crear profesor</a>
+
+<hr>
+
+{% for profesor in profesores %}
+    <div>
+        <h3>{{ profesor.nombre }}</h3>
+        <p>{{ profesor.descripcion }}</p>
+
+        <a href="{% url 'editar_profesor' profesor.id %}">
+            Editar
+        </a>
+
+        |
+
+        <a href="{% url 'borrar_profesor' profesor.id %}">
+            Borrar
+        </a>
+    </div>
+
+    <hr>
+{% empty %}
+    <p>No hay profesores cargados.</p>
+{% endfor %}
 
 {% endblock %}

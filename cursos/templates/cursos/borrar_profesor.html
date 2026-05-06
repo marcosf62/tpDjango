@@ -1,0 +1,17 @@
+{% extends 'cursos/base.html' %}
+
+{% block body %}
+
+<h1>Borrar Profesor</h1>
+
+<form method="post">
+    {% csrf_token %}
+
+    <p>¿Seguro que querés borrar a {{ profesor.nombre }}?</p>
+
+    <button type="submit">Sí, borrar</button>
+
+    <a href="{% url 'cursoslista' %}">Cancelar</a>
+</form>
+
+{% endblock %}
